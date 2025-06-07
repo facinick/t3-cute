@@ -1,69 +1,56 @@
-import Link from "next/link";
+import { ChatInterface } from "~/components/chat-interface";
+import { ModeToggle } from "~/components/mode-toggle";
+import { MusicPlayer } from "~/components/music-player";
+import { WeatherCard } from "~/components/weather-card";
 
-import { LatestPost } from "~/app/_components/post";
-import { auth } from "~/server/auth";
-import { HydrateClient, api } from "~/trpc/server";
-
-export default async function Home() {
-	const hello = await api.post.hello({ text: "from tRPC" });
-	const session = await auth();
-
-	if (session?.user) {
-		void api.post.getLatest.prefetch();
-	}
-
+export default function Home() {
 	return (
-		<HydrateClient>
-			<main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-				<div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-					<h1 className="font-extrabold text-5xl tracking-tight sm:text-[5rem]">
-						Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-					</h1>
-					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-						<Link
-							className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-							href="https://create.t3.gg/en/usage/first-steps"
-							target="_blank"
-						>
-							<h3 className="font-bold text-2xl">First Steps →</h3>
-							<div className="text-lg">
-								Just the basics - Everything you need to know to set up your
-								database and authentication.
-							</div>
-						</Link>
-						<Link
-							className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-							href="https://create.t3.gg/en/introduction"
-							target="_blank"
-						>
-							<h3 className="font-bold text-2xl">Documentation →</h3>
-							<div className="text-lg">
-								Learn more about Create T3 App, the libraries it uses, and how
-								to deploy it.
-							</div>
-						</Link>
-					</div>
-					<div className="flex flex-col items-center gap-2">
-						<p className="text-2xl text-white">
-							{hello ? hello.greeting : "Loading tRPC query..."}
-						</p>
-
-						<div className="flex flex-col items-center justify-center gap-4">
-							<p className="text-center text-2xl text-white">
-								{session && <span>Logged in as {session.user?.name}</span>}
-							</p>
-							<Link
-								href={session ? "/api/auth/signout" : "/api/auth/signin"}
-								className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-							>
-								{session ? "Sign out" : "Sign in"}
-							</Link>
+		<div className="relative min-h-screen bg-background">
+			{/* Header */}
+			<header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
+					<div className="flex h-16 items-center justify-between">
+						<div className="flex items-center">
+							<a className="flex items-center space-x-2" href="/">
+								<span className="text-xl font-bold tracking-tight">UI Components</span>
+							</a>
+						</div>
+						<div className="flex items-center gap-4">
+							<ModeToggle />
 						</div>
 					</div>
+				</div>
+			</header>
 
-					{session?.user && <LatestPost />}
+			{/* Main Content */}
+			<main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
+				<div className="mx-auto max-w-7xl space-y-8">
+					<div className="space-y-2 text-center">
+						<h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+							UI Components Showcase
+						</h1>
+						<p className="text-lg text-muted-foreground">
+							A collection of beautiful and functional UI components built with shadcn/ui
+						</p>
+					</div>
+
+					<div className="grid gap-8 md:grid-cols-2">
+						<div className="space-y-8">
+							<div className="flex justify-center">
+								<MusicPlayer />
+							</div>
+							<div className="flex justify-center">
+								<ChatInterface />
+							</div>
+						</div>
+						<div className="space-y-8">
+							<div className="flex justify-center">
+								<WeatherCard />
+							</div>
+						</div>
+					</div>
 				</div>
 			</main>
-		</HydrateClient>
+		</div>
 	);
 }
