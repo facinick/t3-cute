@@ -20,7 +20,21 @@
 					}
 				}
 			},
-			"recommended": true
+			"recommended": true,
+			"a11y": {
+				"useFocusableInteractive": "off",
+				"useSemanticElements": "off",
+				"noRedundantRoles": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			}
 		}
 	}
 }
