@@ -7,12 +7,12 @@ export default function Home() {
 	return (
 		<div className="relative min-h-screen bg-background">
 			{/* Header */}
-			<header className="fixed top-0 left-0 right-0 z-50 border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+			<header className="fixed top-0 right-0 left-0 z-50 border-b bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex h-16 items-center justify-between">
 						<div className="flex items-center">
 							<a className="flex items-center space-x-2" href="/">
-								<span className="text-xl font-bold tracking-tight">UI Components</span>
+								<span className="font-bold text-xl tracking-tight">UI Components</span>
 							</a>
 						</div>
 						<div className="flex items-center gap-4">
@@ -23,10 +23,10 @@ export default function Home() {
 			</header>
 
 			{/* Main Content */}
-			<main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
+			<main className="container mx-auto px-4 pt-24 pb-8 sm:px-6 lg:px-8">
 				<div className="mx-auto max-w-7xl space-y-8">
 					<div className="space-y-2 text-center">
-						<h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+						<h1 className="font-bold text-4xl tracking-tight sm:text-5xl">
 							UI Components Showcase
 						</h1>
 						<p className="text-lg text-muted-foreground">

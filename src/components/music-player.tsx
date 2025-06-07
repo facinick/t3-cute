@@ -11,23 +11,23 @@ export function MusicPlayer() {
   const [volume, setVolume] = useState([50]);
 
   return (
-    <Card className="w-[350px] p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm">
+    <Card className="w-[350px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-6 backdrop-blur-sm">
       <div className="space-y-4">
         {/* Album Art */}
-        <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-          <span className="text-white text-4xl">🎵</span>
+        <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-pink-500">
+          <span className="text-4xl text-white">🎵</span>
         </div>
 
         {/* Song Info */}
         <div className="space-y-1">
           <h3 className="font-semibold text-lg">Midnight Dreams</h3>
-          <p className="text-sm text-muted-foreground">Luna & The Stars</p>
+          <p className="text-muted-foreground text-sm">Luna & The Stars</p>
         </div>
 
         {/* Progress Bar */}
         <div className="space-y-2">
           <Slider defaultValue={[30]} max={100} step={1} />
-          <div className="flex justify-between text-xs text-muted-foreground">
+          <div className="flex justify-between text-muted-foreground text-xs">
             <span>1:23</span>
             <span>3:45</span>
           </div>

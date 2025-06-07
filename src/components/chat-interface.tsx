@@ -29,21 +29,21 @@ const MOCK_MESSAGES = [
 
 export function ChatInterface() {
   return (
-    <Card className="w-[400px] h-[600px] flex flex-col">
+    <Card className="flex h-[600px] w-[400px] flex-col">
       {/* Chat Header */}
-      <div className="p-4 border-b flex items-center gap-3">
+      <div className="flex items-center gap-3 border-b p-4">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
           <h3 className="font-semibold">John Doe</h3>
-          <p className="text-xs text-muted-foreground">Online</p>
+          <p className="text-muted-foreground text-xs">Online</p>
         </div>
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 p-4 overflow-y-auto space-y-4">
+      <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {MOCK_MESSAGES.map((msg) => (
           <div
             key={msg.id}
@@ -60,7 +60,7 @@ export function ChatInterface() {
             >
               <p>{msg.message}</p>
               <p
-                className={`text-xs mt-1 ${
+                className={`mt-1 text-xs ${
                   msg.sender === "me"
                     ? "text-primary-foreground/70"
                     : "text-muted-foreground"
@@ -74,7 +74,7 @@ export function ChatInterface() {
       </div>
 
       {/* Chat Input */}
-      <div className="p-4 border-t">
+      <div className="border-t p-4">
         <div className="flex gap-2">
           <Input
             placeholder="Type a message..."
