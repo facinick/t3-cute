@@ -1,0 +1,20 @@
+[project]
+name = "fastapi"
+version = "0.1.0"
+description = "Semantic Syntax Highlighter API"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.109.2",
+    "uvicorn==0.27.1",
+    "spacy==3.7.4",
+    "python-multipart==0.0.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"

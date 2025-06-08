@@ -1,4 +1,4 @@
-import { GalleryVerticalEnd } from "lucide-react";
+import { Code2, GalleryVerticalEnd } from "lucide-react";
 
 export type NavItem = {
 	title: string;
@@ -32,8 +32,9 @@ export const navigation: NavItem[] = [
 		],
 	},
 	{
-		title: "English syntax highlighting",
+		title: "English Syntax Highlighting",
 		path: "/english-syntax-highlighting",
+		icon: Code2,
 		items: [
 			{
 				title: "Demo",
