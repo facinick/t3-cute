@@ -1,12 +1,12 @@
-import RootLayoutClient from "./layout"
-import { metadata } from "./metadata"
+import RootLayoutClient from "./layout";
+import { metadata } from "./metadata";
 
-export { metadata }
+export { metadata };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode;
 }) {
-  return <RootLayoutClient>{children}</RootLayoutClient>
-} 
+	return <RootLayoutClient>{children}</RootLayoutClient>;
+}

@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import "~/styles/globals.css"
+import "~/styles/globals.css";
 
-import { Separator } from "@radix-ui/react-context-menu"
-import { Geist } from "next/font/google"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import * as React from "react"
+import { Separator } from "@radix-ui/react-context-menu";
+import { Geist } from "next/font/google";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import * as React from "react";
 
-import { AppSidebar } from "~/components/app-sidebar"
-import { ModeToggle } from "~/components/mode-toggle"
-import { ThemeProvider } from "~/components/theme-provider"
+import { AppSidebar } from "~/components/app-sidebar";
+import { ModeToggle } from "~/components/mode-toggle";
+import { ThemeProvider } from "~/components/theme-provider";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -18,23 +18,27 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "~/components/ui/breadcrumb"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar"
-import { getBreadcrumbs } from "~/config/navigation"
-import { TRPCReactProvider } from "~/trpc/react"
+} from "~/components/ui/breadcrumb";
+import {
+	SidebarInset,
+	SidebarProvider,
+	SidebarTrigger,
+} from "~/components/ui/sidebar";
+import { getBreadcrumbs } from "~/config/navigation";
+import { TRPCReactProvider } from "~/trpc/react";
 
 const geist = Geist({
 	subsets: ["latin"],
 	variable: "--font-geist-sans",
-})
+});
 
 export default function RootLayoutClient({
 	children,
 }: {
-	children: React.ReactNode
+	children: React.ReactNode;
 }) {
-	const pathname = usePathname()
-	const breadcrumbs = getBreadcrumbs(pathname)
+	const pathname = usePathname();
+	const breadcrumbs = getBreadcrumbs(pathname);
 
 	return (
 		<html lang="en" suppressHydrationWarning className={geist.variable}>
@@ -77,9 +81,7 @@ export default function RootLayoutClient({
 											<ModeToggle />
 										</div>
 									</header>
-									<main className="flex-1 p-4">
-										{children}
-									</main>
+									<main className="flex-1 p-4">{children}</main>
 								</SidebarInset>
 							</SidebarProvider>
 						</div>
@@ -87,5 +89,5 @@ export default function RootLayoutClient({
 				</ThemeProvider>
 			</body>
 		</html>
-	)
+	);
 }
